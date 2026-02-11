@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyber Code Hub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: #00ffd5;
+      text-align: center;
+    }
+    header {
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #00ffd5;
+    }
+    button {
+      background: transparent;
+      border: 2px solid #00ffd5;
+      color: #00ffd5;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00ffd5;
+    }
+    button:hover {
+      background: #00ffd5;
+      color: #000;
+    }
+    section {
+      margin-top: 60px;
+      padding: 20px;
+    }
+    .code-box {
+      background: #111;
+      border: 1px solid #00ffd5;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 700px;
+      text-align: left;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cyber Code Hub</h1>
+  <p>موقع أكواد للمبتدئين — نظيف، مجاني، ومن غير تعفن رقمي</p>
+  <button onclick="document.getElementById('python').scrollIntoView({behavior:'smooth'})">
+    Python
+  </button>
+</header>
+
+<section id="python">
+  <h2>Python</h2>
+
+  <div>
+    <a href="https://www.python.org" target="_blank">الموقع الرسمي</a> |
+    <a href="https://code.visualstudio.com" target="_blank">VS Code</a> |
+    <a href="https://www.jetbrains.com/pycharm/" target="_blank">PyCharm</a>
+  </div>
+
+  <div class="code-box">
+    <h3>Hello World</h3>
+    <p>أبسط كود في بايثون. بس مهم.</p>
+    <pre>
+print("Hello, Cyber World!")
+    </pre>
+    <p>مش محتاج مكتبات.</p>
+  </div>
+</section>
+
+</body>
+</html>

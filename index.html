@@ -1,115 +1,57 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>Cyber Code Hub</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0a0a0a;
-      color: #00ffd5;
-      text-align: center;
-    }
-    header {
-      padding: 40px 20px;
-    }
-    h1 {
-      font-size: 2.5em;
-      text-shadow: 0 0 10px #00ffd5;
-    }
-    button {
-      background: transparent;
-      border: 2px solid #00ffd5;
-      color: #00ffd5;
-      padding: 12px 25px;
-      font-size: 1.1em;
-      cursor: pointer;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #00ffd5;
-      margin-top: 10px;
-      transition: all 0.3s ease;
-    }
-    button:hover {
-      background: #00ffd5;
-      color: #000;
-      box-shadow: 0 0 20px #00ffd5;
-    }
-    section {
-      margin-top: 60px;
-      padding: 20px;
-    }
-    .code-box {
-      background: #111;
-      border: 1px solid #00ffd5;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 20px auto;
-      max-width: 700px;
-      text-align: left;
-      color: #fff;
-      overflow-x: auto;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin: 10px 0;
-      border: 1px solid #00ffd5;
-    }
-    a {
-      color: #00ffd5;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Python Hub</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>Cyber Code Hub</h1>
-  <p>موقع أكواد للمبتدئين — نظيف، مجاني، ومن غير تعفن رقمي</p>
-  <button onclick="document.getElementById('python').scrollIntoView({behavior:'smooth'})">
-    Python
-  </button>
-</header>
+    <div class="container">
+        <h1 class="neon-text">Cyber Terminal v1.0</h1>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('python')">Python Section</button>
+            <button class="tab-btn" onclick="openTab('other')">قريباً...</button>
+        </div>
 
-<section id="python">
-  <h2>Python</h2>
+        <div id="python" class="tab-content active">
+            
+            <div class="quick-links">
+                <a href="https://www.python.org" target="_blank" class="cyber-btn">الموقع الرسمي لبايثون</a>
+                <a href="https://code.visualstudio.com/" target="_blank" class="cyber-btn">VS Code</a>
+                <a href="https://www.jetbrains.com/pycharm/" target="_blank" class="cyber-btn">PyCharm</a>
+            </div>
 
-  <div>
-    <a href="https://www.python.org" target="_blank">الموقع الرسمي</a> |
-    <a href="https://code.visualstudio.com" target="_blank">VS Code</a> |
-    <a href="https://www.jetbrains.com/pycharm/" target="_blank">PyCharm</a>
-  </div>
+            <h2 class="section-title">مكتبة الأكواد والشروحات</h2>
+            
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <h3>طباعة Hello World</h3>
+                    <p>تعلم أساسيات الطباعة في بايثون.</p>
+                    <div class="card-actions">
+                        <a href="explanation.html" class="view-btn">شرح الكود</a>
+                        <button class="download-btn" onclick="downloadCode('print(\'Hello World\')', 'hello.py')">تنزيل الكود</button>
+                    </div>
+                </div>
 
-  <!-- مثال كود 1 -->
-  <div class="code-box">
-    <h3>Hello World</h3>
-    <p>أبسط كود في بايثون — بس مهم جدًا للمبتدئين.</p>
-    <pre>print("Hello, Cyber World!")</pre>
-    <img src="https://via.placeholder.com/600x150?text=Hello+World+Output" alt="Hello World Output">
-    <a href="hello.py" download><button>Download Code</button></a>
-    <p>مش محتاج أي مكتبات.</p>
-  </div>
+                <div class="lesson-card">
+                    <h3>الدوال (Functions)</h3>
+                    <p>كيفية إنشاء دوال برمجية متقدمة.</p>
+                    <div class="card-actions">
+                        <a href="#" class="view-btn">شرح الكود</a>
+                        <button class="download-btn">تنزيل الكود</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <!-- مثال كود 2 -->
-  <div class="code-box">
-    <h3>جمع رقمين</h3>
-    <p>كود بسيط يجمع رقمين من المستخدم.</p>
-    <pre>
-num1 = int(input("ادخل الرقم الأول: "))
-num2 = int(input("ادخل الرقم الثاني: "))
-print("الناتج:", num1 + num2)
-    </pre>
-    <img src="https://via.placeholder.com/600x150?text=Sum+Output" alt="Sum Output">
-    <a href="sum.py" download><button>Download Code</button></a>
-    <p>أبسط مثال على التعامل مع المستخدم.</p>
-  </div>
+        <div id="other" class="tab-content">
+            <p class="neon-text">هذا القسم قيد التطوير...</p>
+        </div>
+    </div>
 
-</section>
-
+    <script src="script.js"></script>
 </body>
 </html>

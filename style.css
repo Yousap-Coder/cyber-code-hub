@@ -25,6 +25,12 @@ h1 {
   border-radius: 10px;
 }
 
+h3 {
+  margin: 10px 0;
+  color: #00ffcc;
+  text-shadow: 0 0 6px #00ffcc;
+}
+
 video {
   width: 100%;
   border-radius: 10px;
@@ -38,13 +44,9 @@ button {
   background: transparent;
   border: 1px solid #ff00ff;
   color: #ff00ff;
-  padding: 8px 15px;
+  padding: 6px 14px;
   margin: 5px;
   font-size: 16px;
   cursor: pointer;
   box-shadow: 0 0 10px #ff00ff55;
-}
-
-button:hover {
-  background: #ff00ff22;
 }

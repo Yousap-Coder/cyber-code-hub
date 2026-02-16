@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>بحث يوتيوب داخل الموقع</title>
+  <title>تشغيل فيديو يوتيوب</title>
 
   <style>
     body {
@@ -14,54 +14,61 @@
     }
 
     header {
-      padding: 15px;
+      padding: 20px;
       background: #181818;
     }
 
     input {
-      width: 60%;
-      max-width: 400px;
-      padding: 10px;
+      width: 70%;
+      max-width: 500px;
+      padding: 12px;
       font-size: 16px;
     }
 
     button {
-      padding: 10px 20px;
+      padding: 12px 20px;
       font-size: 16px;
       cursor: pointer;
+      margin-top: 10px;
     }
 
     iframe {
       width: 100%;
-      height: calc(100vh - 90px);
+      height: calc(100vh - 150px);
       border: none;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h2>🔍 البحث في يوتيوب</h2>
-    <input id="search" placeholder="اكتب ما تريد البحث عنه">
-    <button onclick="search()">بحث</button>
+    <h2>▶️ شغّل فيديو يوتيوب بالرابط</h2>
+    <input id="url" placeholder="ضع رابط فيديو يوتيوب هنا">
+    <br>
+    <button onclick="play()">تشغيل</button>
   </header>
 
-  <iframe
-    id="player"
-    allowfullscreen
-    src="">
-  </iframe>
+  <iframe id="player" allowfullscreen></iframe>
 
   <script>
-    function search() {
-      const q = document.getElementById("search").value.trim();
-      if (!q) return;
+    function play() {
+      const url = document.getElementById("url").value.trim();
+      if (!url) return;
 
-      const embedURL =
-        "https://www.youtube.com/embed?listType=search&list=" +
-        encodeURIComponent(q);
+      let videoId = "";
 
-      document.getElementById("player").src = embedURL;
+      if (url.includes("watch?v=")) {
+        videoId = url.split("watch?v=")[1].split("&")[0];
+      } else if (url.includes("youtu.be/")) {
+        videoId = url.split("youtu.be/")[1].split("?")[0];
+      } else {
+        alert("الرابط غير صالح");
+        return;
+      }
+
+      document.getElementById("player").src =
+        "https://www.youtube.com/embed/" + videoId;
     }
   </script>
 

@@ -1,6 +1,6 @@
 // أضف روابط الفيديوهات من ImageKit هنا
 const videos = [
-  { file: "https://ik.imagekit.io/xgs3yjnd5videoDHXTR2/%D8%A3%D8%BA%D9%86%D9%8A%D8%A9%20%D8%AC%D9%88%D8%AC%D9%88%D8%AA%D8%B3%D9%88%D9%83%D8%A7%D9%8A%D8%B3%D9%86%20%D9%85%D8%AF%D8%A8%D9%84%D8%AC%D8%A9%20%D8%A8%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%20%20Jujutsu%20Kaisen%20Op%20AIZO%20King%20Gnu%20ARABIC%20Cover_1080p.mp4" },
+  { file: "https://ik.imagekit.io/xgs3yjnd5videoDHXTR2/Jujutsn?updatedAt=1771240155027" },
   // مثال: { file: "https://ik.imagekit.io/your_account_id/video2.mp4" },
 ];
 

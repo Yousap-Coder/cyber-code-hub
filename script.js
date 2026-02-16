@@ -4,8 +4,7 @@
 // يتم تحويله إلى رابط تشغيل مباشر: https://drive.google.com/uc?export=download&id=FILE_ID
 
 const videos = [
-  { file: "https://drive.google.com/uc?export=download&id=1RYt8OF95CkGnCtDh4tvtIIFA18wvCsPZ
-" },
+  { file: "https://drive.google.com/uc?export=download&id=1RYt8OF95CkGnCtDh4tvtIIFA18wvCsPZ" },
   { file: "https://drive.google.com/file/d/1jq6xki08BrZXIxP2dKcPoxQo1qnglVbQ/view?usp=sharing" },
   { file: "https://drive.google.com/uc?export=download&id=FILE_ID" }
 ];

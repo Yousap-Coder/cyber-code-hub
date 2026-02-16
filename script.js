@@ -1,27 +1,25 @@
-// ✏️ أضف أي عدد من روابط الفيديوهات من ImageKit
+// أضف روابط الفيديوهات من ImageKit هنا
 const videos = [
-  { file: "https://ik.imagekit.io/xgs3yjnd5videoDHXTR2/sample-video.mp4?updatedAt=1771235624396" },
-  { file: "https://ik.imagekit.io/your_account_id/video2.mp4" },
-  // أضف المزيد هنا بسهولة
+  { file: "https://ik.imagekit.io/xgs3yjnd5videoDHXTR2/%D8%A3%D8%BA%D9%86%D9%8A%D8%A9%20%D8%AC%D9%88%D8%AC%D9%88%D8%AA%D8%B3%D9%88%D9%83%D8%A7%D9%8A%D8%B3%D9%86%20%D9%85%D8%AF%D8%A8%D9%84%D8%AC%D8%A9%20%D8%A8%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%20%20Jujutsu%20Kaisen%20Op%20AIZO%20King%20Gnu%20ARABIC%20Cover_1080p.mp4" },
+  // مثال: { file: "https://ik.imagekit.io/your_account_id/video2.mp4" },
 ];
 
 const container = document.getElementById("videos");
 
 videos.forEach(v => {
-  // استخرج اسم الفيديو من آخر جزء من الرابط
   let urlParts = v.file.split("/");
   let title = urlParts[urlParts.length - 1].split("?")[0];
   title = title.replace(/_/g, " ").replace(/\.mp4/, "");
 
-  // id لكل فيديو للايك/ديسلايك
   const id = title.replace(/\s/g, "-");
 
-  // قراءة عدد اللايك والديسلايك
+  // اللايك والديسلايك
   const likes = localStorage.getItem(id + "_likes") || 0;
   const dislikes = localStorage.getItem(id + "_dislikes") || 0;
-
-  // تحقق إذا الشخص ضغط قبل كده
   const userVoted = localStorage.getItem(id + "_voted") || null;
+
+  // التعليقات المخزنة
+  const savedComments = JSON.parse(localStorage.getItem(id + "_comments") || "[]");
 
   container.innerHTML += `
     <div class="card">
@@ -35,24 +33,44 @@ videos.forEach(v => {
           👎 <span id="d-${id}">${dislikes}</span>
         </button>
       </div>
+      <div class="comments">
+        <input type="text" id="input-${id}" placeholder="اكتب تعليق...">
+        <button onclick="addComment('${id}')">💬 إضافة</button>
+        <div class="comment-list" id="list-${id}">
+          ${savedComments.map(c => `<div class="comment-item">${c}</div>`).join("")}
+        </div>
+      </div>
     </div>
   `;
 });
 
 function vote(id, type) {
-  // منع الضغط المتكرر
   if(localStorage.getItem(id + "_voted")) return;
 
-  // زيادة العد
   let count = localStorage.getItem(id + "_" + type) || 0;
   count++;
   localStorage.setItem(id + "_" + type, count);
 
-  // تعطيل الأزرار بعد التصويت
   localStorage.setItem(id + "_voted", type);
   document.getElementById("like-" + id).disabled = true;
   document.getElementById("dislike-" + id).disabled = true;
-
-  // تحديث العرض
   document.getElementById((type === "likes" ? "l-" : "d-") + id).innerText = count;
+}
+
+function addComment(id) {
+  const input = document.getElementById("input-" + id);
+  const text = input.value.trim();
+  if(!text) return;
+
+  const savedComments = JSON.parse(localStorage.getItem(id + "_comments") || "[]");
+  savedComments.push(text);
+  localStorage.setItem(id + "_comments", JSON.stringify(savedComments));
+
+  const list = document.getElementById("list-" + id);
+  const div = document.createElement("div");
+  div.className = "comment-item";
+  div.innerText = text;
+  list.appendChild(div);
+
+  input.value = "";
 }

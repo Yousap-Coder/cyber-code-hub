@@ -54,3 +54,41 @@ button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* التعليقات */
+.comments {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.comments input {
+  width: 70%;
+  padding: 6px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: 1px solid #00ffff55;
+  background: #11152a;
+  color: #e0e0ff;
+}
+
+.comments button {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #00ffff;
+  background: transparent;
+  color: #00ffff;
+  cursor: pointer;
+}
+
+.comment-list {
+  margin-top: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  border-top: 1px solid #00ffff33;
+  padding-top: 5px;
+}
+
+.comment-item {
+  padding: 4px 0;
+  border-bottom: 1px solid #00ffff22;
+}

@@ -1,27 +1,23 @@
-// وظيفة التبديل بين التبويبات
-function openTab(tabId) {
-    // إخفاء كل المحتويات
-    document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-    });
-    
-    // إزالة الحالة النشطة من الأزرار
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-
-    // إظهار التبويب المختار
-    document.getElementById(tabId).classList.add('active');
-    event.currentTarget.classList.add('active');
+function like(id) {
+  let likes = localStorage.getItem(id + "_likes") || 0;
+  likes++;
+  localStorage.setItem(id + "_likes", likes);
+  document.getElementById("l-" + id).innerText = likes;
 }
 
-// وظيفة تنزيل الكود كملف
-function downloadCode(content, filename) {
-    const element = document.createElement('a');
-    const file = new Blob([content], {type: 'text/plain'});
-    element.href = URL.createObjectURL(file);
-    element.download = filename;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+function dislike(id) {
+  let dislikes = localStorage.getItem(id + "_dislikes") || 0;
+  dislikes++;
+  localStorage.setItem(id + "_dislikes", dislikes);
+  document.getElementById("d-" + id).innerText = dislikes;
 }
+
+window.onload = () => {
+  document.querySelectorAll(".card").forEach(card => {
+    const id = card.dataset.id;
+    document.getElementById("l-" + id).innerText =
+      localStorage.getItem(id + "_likes") || 0;
+    document.getElementById("d-" + id).innerText =
+      localStorage.getItem(id + "_dislikes") || 0;
+  });
+};

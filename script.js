@@ -1,23 +1,19 @@
-// ✏️ أضف روابط Google Drive المباشرة هنا
-// رابط Google Drive مباشرة للفيديو: 
-// https://drive.google.com/file/d/FILE_ID/view?usp=sharing
-// يتم تحويله إلى رابط تشغيل مباشر: https://drive.google.com/uc?export=download&id=FILE_ID
-
+// ✏️ أضف أي عدد من روابط الفيديوهات من ImageKit
 const videos = [
-  { file: "https://drive.google.com/uc?export=download&id=1RYt8OF95CkGnCtDh4tvtIIFA18wvCsPZ" },
-  { file: "https://drive.google.com/file/d/1jq6xki08BrZXIxP2dKcPoxQo1qnglVbQ/view?usp=sharing" },
-  { file: "https://drive.google.com/uc?export=download&id=FILE_ID" }
+  { file: "https://ik.imagekit.io/xgs3yjnd5videoDHXTR2/sample-video.mp4?updatedAt=1771235624396" },
+  { file: "https://ik.imagekit.io/your_account_id/video2.mp4" },
+  // أضف روابط الفيديوهات الجديدة هنا مباشرة
 ];
 
 const container = document.getElementById("videos");
 
 videos.forEach(v => {
-  // استخرج اسم الفيديو من الرابط الأخير
-  const urlParts = v.file.split("/");
+  // استخرج اسم الفيديو من آخر جزء من الرابط
+  let urlParts = v.file.split("/");
   let title = urlParts[urlParts.length - 1].split("?")[0];
   title = title.replace(/_/g, " ").replace(/\.mp4/, "");
 
-  // حدد id للـ likes/dislikes
+  // id للايك/ديسلايك
   const id = title.replace(/\s/g, "-");
 
   const likes = localStorage.getItem(id + "_likes") || 0;

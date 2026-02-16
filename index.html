@@ -1,57 +1,66 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyberpunk Python Hub</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>YouTube داخل الموقع</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 20px;
+      background: #181818;
+    }
+
+    input {
+      width: 60%;
+      max-width: 400px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 100px);
+      border: none;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1 class="neon-text">Cyber Terminal v1.0</h1>
-        
-        <div class="tabs">
-            <button class="tab-btn active" onclick="openTab('python')">Python Section</button>
-            <button class="tab-btn" onclick="openTab('other')">قريباً...</button>
-        </div>
+  <header>
+    <h2>🔍 البحث في يوتيوب داخل الموقع</h2>
+    <input id="search" placeholder="اكتب ما تريد البحث عنه">
+    <button onclick="search()">بحث</button>
+  </header>
 
-        <div id="python" class="tab-content active">
-            
-            <div class="quick-links">
-                <a href="https://www.python.org" target="_blank" class="cyber-btn">الموقع الرسمي لبايثون</a>
-                <a href="https://code.visualstudio.com/" target="_blank" class="cyber-btn">VS Code</a>
-                <a href="https://www.jetbrains.com/pycharm/" target="_blank" class="cyber-btn">PyCharm</a>
-            </div>
+  <iframe id="player"
+    src="https://www.youtube.com">
+  </iframe>
 
-            <h2 class="section-title">مكتبة الأكواد والشروحات</h2>
-            
-            <div class="lessons-grid">
-                <div class="lesson-card">
-                    <h3>طباعة Hello World</h3>
-                    <p>تعلم أساسيات الطباعة في بايثون.</p>
-                    <div class="card-actions">
-                        <a href="explanation.html" class="view-btn">شرح الكود</a>
-                        <button class="download-btn" onclick="downloadCode('print(\'Hello World\')', 'hello.py')">تنزيل الكود</button>
-                    </div>
-                </div>
+  <script>
+    function search() {
+      const q = document.getElementById("search").value.trim();
+      if (!q) return;
 
-                <div class="lesson-card">
-                    <h3>الدوال (Functions)</h3>
-                    <p>كيفية إنشاء دوال برمجية متقدمة.</p>
-                    <div class="card-actions">
-                        <a href="#" class="view-btn">شرح الكود</a>
-                        <button class="download-btn">تنزيل الكود</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+      const url = "https://www.youtube.com/results?search_query=" 
+                  + encodeURIComponent(q);
 
-        <div id="other" class="tab-content">
-            <p class="neon-text">هذا القسم قيد التطوير...</p>
-        </div>
-    </div>
+      document.getElementById("player").src = url;
+    }
+  </script>
 
-    <script src="script.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 // أضف روابط الفيديوهات من ImageKit هنا
 const videos = [
-  { file: "https://ik.imagekit.io/xgs3yjnd5videoDHXTR2/Jujutsn?updatedAt=1771240155027" },
+  { file: "https://ik.imagekit.io/xgs3yjnd5videoDHXTR2/Jujutsu?updatedAt=1771240155027" },
   // مثال: { file: "https://ik.imagekit.io/your_account_id/video2.mp4" },
 ];
 
